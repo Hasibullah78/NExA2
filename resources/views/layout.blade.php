@@ -26,7 +26,7 @@
                         <li class="header-icon dib mt-0" style="float: left;">
 
                             {{-- <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 100%;" alt="" height="60" width="60"><br> --}}
-                            <span class="user-avatar">{{ 'Language : '.session('locale') }} <i class="ti-angle-down f-s-10"></i> </span>
+                            <span class="user-avatar">{{ __('message.D_Language').' '.session('locale') }} <i class="ti-angle-down f-s-10"></i> </span>
                             <div class="drop-down  dropdown-profile">
 
                                 <div class="dropdown-content-body">
@@ -36,22 +36,26 @@
                                             <x-dropdown-link :href="route('setLang',['locale'=>'en'])">
                                             <i class="fas fa-language float-end"></i>
                                             en  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;English
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('message.English') }}
 
                                             </x-dropdown-link>
                                         </li>
                                         <li>
                                             <x-dropdown-link :href="route('setLang',['locale'=>'ps'])">
-                                                <i class="fas fa-language float-end"></i>ps  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pashto
-                                                </x-dropdown-link>
+                                            <i class="fas fa-language float-end"></i>
+                                            ps  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            {{ __('message.Pashto') }}
+
+                                            </x-dropdown-link>
                                         </li>
                                         <li>
                                             <x-dropdown-link :href="route('setLang',['locale'=>'fa'])">
-                                                <i class="fas fa-language float-end"></i> fa  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Persian
-                                                </x-dropdown-link>
+                                            <i class="fas fa-language float-end"></i>
+                                            fa  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ __('message.Persian') }}
+
+                                            </x-dropdown-link>
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -62,7 +66,7 @@
 
                                 <li class="header-icon dib mt-0" style="float: right;">
 
-                                    <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 100%;" alt="" height="60" width="60"><br>
+                                    <img src="{{ asset(Auth::user()->image) }}" style="border-radius: 100%;" alt="" height="" width="40">
                                     <span class="user-avatar">{{ Auth::user()->name }} <i class="ti-angle-down f-s-10"></i></span>
                                     <div class="drop-down dropdown-profile">
 
@@ -72,7 +76,7 @@
                                                 <li>
                                                     <x-dropdown-link :href="route('profile.edit')">
                                                     <i class="ti-user"></i> <span>
-                                                    {{('Profile') }}
+                                                    {{__('message.Profile') }}
                                                      </span></x-dropdown-link>
 
                                                 </li>
@@ -97,7 +101,7 @@
                                                     <a :href="route('logout')"
                                                             onclick="event.preventDefault();
                                                                         this.closest('form').submit();">
-                                                     <i class="ti-power-off"> <span> {{('LogOut')}}</span>  </i>
+                                                     <i class="ti-power-off"> <span> {{__('message.logout')}}</span>  </i>
                                                 </a>
                                                 </form>
                                             </li>

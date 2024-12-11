@@ -17,14 +17,6 @@ class HomeController extends Controller
 {
     public function Index()
     {
-        // if(session()->has('locale')){
-        //     return session('locale');
-        // }
-        // else
-        // return'NO';
-
-        //  $a=session('locale');
-        //  return $a;
 
         $all_employees=Employee::all();
         $allocated_employees=$posts = Employee::join('final_records', 'employees.id', '=', 'final_records.employee_id')
@@ -36,18 +28,12 @@ class HomeController extends Controller
         $sub_users=User::where('role',2)->get();
         $positions=Position::all();
         return view('dashboard1',compact('all_employees','allocated_employees','all_items','item_category','admin_users','sub_users','positions'));
-
-
-
-
     }
     public function SetLang(Request $request,$locale)
     {
-
             session(['locale' => $locale]);
             App::setLocale($locale);
-
-        return redirect()->back();
+           return redirect()->back();
     }
 
 }

@@ -85,37 +85,37 @@
 <div class="col-md-4">
     <div class="card bg-cyan">
         <canvas id="chart1"></canvas>
-        <div class="card-header">ټول کارمندان</div>
+        <div class="card-header">{{ __('message.D_All_Emp') }}</div>
         @foreach ($all_employees as $emp)
         @php
             ++$all_employees_1;
         @endphp
       @endforeach
-        <div class="card-body">ثبت شوي کارمندان: {{ $all_employees_1 }}</div>
+        <div class="card-body"> {{ $all_employees_1 }}</div>
     </div>
 </div>
 <div class="col-md-4">
     <div class="card bg-danger">
         <canvas id="chart2"></canvas>
-        <div class="card-header">اجناسو لرونکي کارمندان</div>
+        <div class="card-header">{{ __('message.D_Allocated_Emp') }}</div>
         @foreach ($allocated_employees as $teach)
         @php
             ++$allocated_employees_1;
         @endphp
       @endforeach
-        <div class="card-body">اجناسو لرونکي کارمندان: {{ $allocated_employees_1 }}</div>
+        <div class="card-body"> {{ $allocated_employees_1 }}</div>
     </div>
 </div>
 <div class="col-md-4">
     <div class="card bg-primary">
         <canvas id="chart3"></canvas>
-        <div class="card-header">بستونه</div>
+        <div class="card-header">{{ __('message.D_Positions') }}</div>
         @foreach ($positions as $teach)
         @php
             ++$positions_1;
         @endphp
       @endforeach
-        <div class="card-body">ټول بستونه: {{ $positions_1 }}</div>
+        <div class="card-body"> {{ $positions_1 }}</div>
     </div>
 </div>
 </div>
@@ -124,31 +124,31 @@
 <div class="col-md-4">
     <div class="card bg-orange">
         <canvas id="chart4"></canvas>
-        <div class="card-header">اجناسو ارقام</div>
+        <div class="card-header">{{ __('message.D_Item') }}</div>
         @foreach ($all_items as $teach)
         @php
             ++$all_items_1;
         @endphp
       @endforeach
-        <div class="card-body">اجناسو ارقام: {{ $all_items_1 }}</div>
+        <div class="card-body">{{ $all_items_1 }}</div>
     </div>
 </div>
 <div class="col-md-4">
     <div class="card bg-blue">
         <canvas id="chart5"></canvas>
-        <div class="card-header">اجناسو کټګوري</div>
+        <div class="card-header">{{ __('message.D_item_Category') }}</div>
         @foreach ($item_category as $teach)
                        @php
                            ++$item_category_1;
                        @endphp
                      @endforeach
-        <div class="card-body">کتګوریو شمیر: {{ $item_category_1 }}</div>
+        <div class="card-body"> {{ $item_category_1 }}</div>
     </div>
 </div>
 <div class="col-md-4">
     <div class="card bg-green">
         <canvas id="chart6"></canvas>
-        <div class="card-header">د سیستم کاروونکي</div>
+        <div class="card-header">{{ __('message.D_Sys_users') }}</div>
         <div class="card-body">
             @foreach ($admin_users as $teach)
             @php
@@ -160,7 +160,7 @@
               ++$sub_users_1;
           @endphp
         @endforeach
-            عادي کارن: {{ $sub_users_1 }}&nbsp;  ادماین: {{ $admins_users_1 }}
+        {{ __('message.Sub_User') }}: {{ $sub_users_1 }}&nbsp;  {{ __('message.Admin') }}: {{ $admins_users_1 }}
         </div>
     </div>
 </div>
@@ -207,147 +207,6 @@ chartData.forEach(chart => {
 
 
 
-
-
-
-            {{-- <div class="row">
-                <div class="col-md-4">
-                    <div class="card " style="background-color: rgb(24, 255, 255,1.0)">
-                        <div class="card-header" style="color: rgb(0, 0, 0); text-align:center">
-                       <b>ټول کارمندان</b><br>
-                            @foreach ($all_employees as $emp)
-                              @php
-                                  ++$all_employees_1;
-                              @endphp
-                            @endforeach
-
-
-                    </div>
-                        <div class="card-body" style="text-align: center">
-
-                            <b> ثبت شوي کارمندان    :       {{ $all_employees_1 }}</b> <br>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-danger">
-                        <div class="card-header" style="color: rgb(255, 255, 255); text-align:center">
-                       <b>   اجناسو لرونکي کارمندان</b>
-                       @foreach ($allocated_employees as $teach)
-                       @php
-                           ++$allocated_employees_1;
-                       @endphp
-                     @endforeach
-
-
-             </div>
-                 <div class="card-body" style="text-align: center">
-
-                     <b> اجناسو لرونکي کارمندان    :       {{ $allocated_employees_1 }}</b> <br>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-primary"">
-                        <div class="card-header" style="color: rgb(255, 255, 255); text-align:center">
-                       <b>بستونه</b>
-
-
-                       @foreach ($positions as $teach)
-                       @php
-                           ++$positions_1;
-                       @endphp
-                     @endforeach
-
-
-             </div>
-                 <div class="card-body" style="text-align: center">
-
-                     <b> ټول بستونه    :       {{ $positions_1 }}</b> <br>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card" style="background-color: rgb(255, 153, 0)">
-                        <div class="card-header" style="color: rgb(255, 255, 255); text-align:center">
-                       <b>    اجناسو ارقام</b>
-
-                       @foreach ($all_items as $teach)
-                       @php
-                           ++$all_items_1;
-                       @endphp
-                     @endforeach
-
-
-             </div>
-                 <div class="card-body" style="text-align: center">
-
-                     <b> اجناسو ارقام    :       {{ $all_items_1 }}</b> <br>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="background-color: rgb(0, 106, 255)">
-                        <div class="card-header" style="color: rgb(255, 255, 255); text-align:center">
-                       <b>   اجناسو کټګوري</b>
-
-                       @foreach ($item_category as $teach)
-                       @php
-                           ++$item_category_1;
-                       @endphp
-                     @endforeach
-
-
-             </div>
-                 <div class="card-body" style="text-align: center">
-
-                     <b> کتګوریو شمیر    :       {{ $item_category_1 }}</b> <br>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="background-color: rgb(4, 255, 0)">
-                        <div class="card-header" style="color: rgb(255, 255, 255); text-align:center">
-                       <b>  د سیستم کاروونکي</b>
-
-                       @foreach ($admin_users as $teach)
-                       @php
-                           ++$admins_users_1;
-                       @endphp
-                     @endforeach
-                     @foreach ($sub_users as $student)
-                     @php
-                         ++$sub_users_1;
-                     @endphp
-                   @endforeach
-
-             </div>
-                 <div class="card-body" style="text-align: center">
-
-                     <b> عادي کارن    :       {{ $sub_users_1 }}</b> &nbsp;&nbsp;&nbsp;&nbsp;ادماین : {{ $admins_users_1 }}
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
-        </div>
-    </div>
-</div>
 @endsection
 
 

@@ -21,6 +21,9 @@ class AllocationController extends Controller
     public function Save(Request $request)
     {
 
+        return $request->item_unit[0];
+
+
 
         $items=Item::select('item_unit')->where('id',$request->item_id)->first();
             if($request->item_quantity<=$items->item_unit){
@@ -39,15 +42,16 @@ class AllocationController extends Controller
                 'item_id'=>$request->item_id,
                 'employee_id'=>$request->emp_id,
                 'item_unit'=>$request->item_quantity,
-                'fees_9_photo'=>$location_Path
+                'fees_9_photo'=>$location_Path,
+                'created_at'=>now()
              ]);
              $emp_name=Employee::select('name')->where('id',$request->emp_id)->first();
-         return redirect()->back()->with('success',$request->item_quantity.' Items are allocated to '.$emp_name->name.' Remain Items are '.$remain_items);
+         return redirect()->back()->with('success',' '. __('message.Allocation_done').' '. __('message.Remain_Items').$remain_items);
 
         }
         else
         {
-            return redirect()->back()->with('success',' Allocation failed, all items in stock are '.$items->item_unit);
+            return redirect()->back()->with('success',__('message.Allocation_Failed').$items->item_unit);
 
         }
 
@@ -74,7 +78,7 @@ class AllocationController extends Controller
             ->join('employees', 'final_records.employee_id', '=', 'employees.id')
             ->join('items', 'final_records.item_id', '=', 'items.id')
             ->join('positions', 'positions.id', '=', 'employees.position_id')
-            ->select('final_records.item_unit','final_records.id as record_id','final_records.fees_9_photo','employees.id as emp_id',
+            ->select('final_records.item_unit','final_records.created_at','final_records.id as record_id','final_records.fees_9_photo','employees.id as emp_id',
             'employees.name','employees.f_name','employees.photo','employees.phone','positions.name as post_name',
             'items.name as item_name','items.itemtype','items.item_ssn')
             ->where('final_records.employee_id',$id)->get();
@@ -140,4 +144,5 @@ class AllocationController extends Controller
         return view('Allocation.Allocated',compact('records'));
 
     }
+
 }

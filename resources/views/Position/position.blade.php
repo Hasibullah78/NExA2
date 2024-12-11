@@ -14,7 +14,7 @@
         </div>
         @endif
                     <div class="form-group">
-                      <h4 style="text-align: center">د بست نوم</h4>
+                      <h4 style="text-align: center">{{ __('message.Position_Name') }}</h4><br>
                       <input type="text" dir="rtl" autofocus required name="name" class="form-control" id="exampleFormControlInput1" placeholder="">
                    @error('name')
                        <span class=" text-danger">{{ $message }}</span>
@@ -24,7 +24,7 @@
                         <div class="col-md-12 text-center">
                             <button class="btn btn-lg btn-secondary"  id="button" style="border-radius: 10%">
 
-                                <i class="fas fa-save"></i> Save
+                                <i class="fas fa-save"></i> {{ __('message.Save') }}
                         </div>
                     </div>
                   </form>

@@ -34,6 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::get('record/view{id}',[AllocationController::class,'View']);
     Route::get('edit/records{emp_id}/{record_id}',[AllocationController::class,'Edit']);
     Route::post('update/items/fees9{id}',[AllocationController::class,'Update_Record']);
+    Route::get('view/records{id}',[EmployeeController::class,'View_Record']);
+    Route::get('edit/records{id}',[EmployeeController::class,'Edit_Record']);
+    Route::post('update/{id}',[EmployeeController::class,'Update_Employee']);
+
 
 });
 

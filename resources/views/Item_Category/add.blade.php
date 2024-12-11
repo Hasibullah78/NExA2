@@ -15,7 +15,7 @@
                 <div class="container h-100 mt-5">
                     <div class="row h-100">
                         <div class="col-md-12 mx-auto d-flex justify-content-center align-items-center">
-                            <input type="text" style="font-size: 130%"  autofocus dir="rtl" required class="form-control" name="name" class="form-control"  placeholder="حسیب الله">
+                            <input type="text" style="font-size: 130%"  autofocus dir="rtl" required class="form-control" name="name" class="form-control"  placeholder="">
                             @error('name')
                                 <span class=" text-danger">{{ $message }}</span>
                             @enderror
@@ -29,7 +29,7 @@
                     <div class="row h-100">
                         <div class="col-12 d-flex justify-content-center align-items-center">
                             <button class="btn btn-lg btn-secondary"  id="button" style="border-radius: 10%">
-                              <i class="fas fa-save"></i> Save
+                              <i class="fas fa-save"></i> {{ __('message.Save') }}
                         </div>
 
                     </div>

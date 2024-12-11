@@ -11,20 +11,20 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title" style="text-align: center">اجناس لرونکو کارمندانو لیست</h4>
+                    <h4 class="card-title" style="text-align: center">{{ __('message.Allocated_Emp_List') }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="display" style="min-width: 845px">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center" scope="col" >ای ډی</th>
-                                    <th style="text-align: center" scope="col" >نوم</th>
-                                    <th style="text-align: center" scope="col">د پلار نوم</th>
-                                    <th style="text-align: center" scope="col">تیلیفون شماره</th>
-                                    <th style="text-align: center" scope="col">بست</th>
-                                    <th style="text-align: center" scope="col">تصویر</th>
-                                    <th id="textalign" scope="col">پروفایل او ایډیټ</th>
+                                    <th style="text-align: center" scope="col" >{{ __('message.SSN') }}</th>
+                                    <th style="text-align: center" scope="col" >{{ __('message.Name') }}</th>
+                                    <th style="text-align: center" scope="col">{{ __('message.F_Name') }}</th>
+                                    <th style="text-align: center" scope="col">{{ __('message.Phone') }}</th>
+                                    <th style="text-align: center" scope="col">{{ __('message.Position_Name') }}</th>
+                                    <th style="text-align: center" scope="col">{{ __('message.Photo') }}</th>
+                                    <th id="textalign" scope="col">{{ __('message.Profile_Edit') }}</th>
 
 
 

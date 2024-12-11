@@ -14,17 +14,17 @@
 
 
                 <div class="card-header">
-                    <h4 class="card-title" style="text-align: center"> کټګوریو لیست</h4>
+                    <h4 class="card-title" style="text-align: center"> {{ __('message.Category_List') }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="display"  style="min-width: 845px; border-radius:20%" >
                             <thead>
                                 <tr>
-                                    <th scope="col">شماره</th>
-                                    <th scope="col"> کټګوري نوم</th>
-                                    <th scope="col">د ثبت نیټه</th>
-                                    <th id="textalign" scope="col"> ایدیټ او کتل</th>
+                                    <th scope="col">{{ __('message.SSN') }}</th>
+                                    <th scope="col">  {{ __('message.Category_Name') }}</th>
+                                    <th scope="col">{{ __('message.Registration_Date') }}</th>
+                                    <th id="textalign" scope="col">{{ __('message.Profile_Edit') }}</th>
                                   </tr>
                             </thead>
                             <tbody>

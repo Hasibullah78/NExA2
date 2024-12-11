@@ -107,12 +107,7 @@
 
 <script>
     $(document).ready(function(){
-        $("#image").mouseover(function(){
-            $("#image").css({"height" : "297mm","width":"210mm"});
-        });
-        $("#image").mouseout(function(){
-            $("#image").css({"height" : "60","width":"60"});
-        });
+
 
         $("#item_checkbox").change(function(){
             if ($('#item_checkbox').is(':checked')) {

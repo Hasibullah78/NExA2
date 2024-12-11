@@ -11,21 +11,21 @@
 
 
                 <div class="card-header">
-                    <h4 class="card-title" style="text-align: center"> اجناسو لیست</h4>
+                    <h4 class="card-title" style="text-align: center">  {{ __('message.item_list') }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="display"  style="min-width: 845px; border-radius:20%" >
                             <thead>
                                 <tr>
-                                    <th scope="col" class="th" style="text-align: center">شماره</th>
-                                    <th scope="col" style="text-align: center">جنس نوم</th>
-                                    <th scope="col" style="text-align: center">نوعیت</th>
-                                    <th scope="col" style="text-align: center">مقدار</th>
-                                    <th scope="col" style="text-align: center">مسلسل شماره</th>
-                                    <th scope="col" style="text-align: center">کټګوري</th>
-                                    <th scope="col" style="text-align: center">ثبت نیټه</th>
-                                    <th scope="col" class="th" style="text-align: center" >ایډیټ او کتل</th>
+                                    <th scope="col" class="th" style="text-align: center">{{ __('message.SSN') }}</th>
+                                    <th scope="col" style="text-align: center"> {{ __('message.Item_Name') }}</th>
+                                    <th scope="col" style="text-align: center">{{ __('message.Item_Type') }}</th>
+                                    <th scope="col" style="text-align: center">{{ __('message.Item_Unit') }}</th>
+                                    <th scope="col" style="text-align: center">{{ __('message.Item_SSN') }}</th>
+                                    <th scope="col" style="text-align: center">{{ __('message.Category_Name') }}</th>
+                                    <th scope="col" style="text-align: center"> {{ __('message.Registration_Date') }}</th>
+                                    <th scope="col" class="th" style="text-align: center" >{{ __('message.Profile_Edit') }}</th>
 
                                   </tr>
                             </thead>

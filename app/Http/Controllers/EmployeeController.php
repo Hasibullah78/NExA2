@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\App;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\FinalRecord;
 use App\Models\Position;
 use Intervention\Image\Facades\Image;
 // use Barryvdh\DomPDF\Facade as PDF;
@@ -77,6 +78,70 @@ class EmployeeController extends Controller
 
         // return view('pdf',compact('records'));
 
+
+    }
+    public function View_Record($id){
+        $records=DB::table('employees')
+        ->join('positions','employees.position_id','=','positions.id')
+        ->select('employees.*','positions.name as position_name')->where('employees.id','=',$id)->get();
+        return view('employee.view',compact('records'));
+    }
+    public function Edit_Record($id){
+        $positions=Position::all();
+        $records=DB::table('employees')
+        ->join('positions','employees.position_id','=','positions.id')
+        ->select('employees.*','positions.name as position_name')->where('employees.id','=',$id)->get();
+        return view('employee.edit',compact('records','positions'));
+    }
+    public function Update_Employee(Request $request,$id){
+
+        $Name=$request->name;
+        $F_Name=$request->f_name;
+        $Phone=$request->phone;
+        $Position=$request->position;
+        $Photo=$request->photo;
+        $old_image=Employee::select('photo')->where('id',$id)->first();
+        if($Name || $F_Name || $Phone || $Position || $Photo){
+
+            if($Name){
+                DB::table('employees')->where('id',$id)->update([
+                    'name'=>$Name
+                    ]);
+            }
+            if($F_Name){
+                DB::table('employees')->where('id',$id)->update([
+                    'f_name'=>$F_Name
+                    ]);
+            }
+            if($Phone){
+                DB::table('employees')->where('id',$id)->update([
+                    'phone'=>$Phone
+                    ]);
+            }
+            if($Position){
+                DB::table('employees')->where('id',$id)->update([
+                    'position_id'=>$Position
+                    ]);
+            }
+            if($Photo){
+                $request->validate([
+                    'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                     ]);
+                    $image=$request->photo;
+
+                     $name_gen=$id.time().".".$image->getClientOriginalExtension();
+                     Image::make($image)->save('employee/images/'.$name_gen);
+                     $location_Path="employee/images/".$name_gen;
+                    //   $images=FinalRecord::select('fees_9_photo')->where('id',$id)->first();
+                        // $location_Path="fees_9/image/".$name_gen;
+                        DB::table('employees')->where('id',$id)->update([
+                           'photo'=>$location_Path
+                        ]);
+                        unlink($old_image->photo);
+            }
+            return redirect()->back()->with('success',__('message.updation_succeed'));
+        }
+        return redirect()->back()->with('danger',__('message.updation_fail'));
 
     }
 }
